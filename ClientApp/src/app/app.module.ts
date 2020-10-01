@@ -40,6 +40,7 @@ import { MoviePiecesComponent } from './movie-pieces/movie-pieces.component';
         { path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },
         { path: 'students', component: StudentsComponent, canActivate: [AuthorizeGuard] },
         { path: 'teachers', component: TeacherComponent, canActivate: [AuthorizeGuard] },
+        { path: 'movie-show-room', component: MovieShowRoomComponent, canActivate: [AuthorizeGuard]},
     ])
   ],
   providers: [
