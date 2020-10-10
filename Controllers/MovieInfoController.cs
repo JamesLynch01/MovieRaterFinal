@@ -39,7 +39,7 @@ namespace capstone.Controllers
 
         [HttpDelete]
         public MovieInfo Delete([FromBody]MovieInfo movies) {
-            _context.MovieInfos.Delete(movies);
+            _context.MovieInfos.Remove(movies);
             _context.SaveChanges();
             return null;
         }
