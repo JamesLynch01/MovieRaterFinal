@@ -30,6 +30,7 @@ import { MovieDisplayComponent } from './movie-display/movie-display.component';
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
         { path: 'movie-info', component: MovieInfoComponent, canActivate: [AuthorizeGuard]},
+        {path: 'movie-display', component: MovieDisplayComponent, canActivate: [AuthorizeGuard]},
     ])
   ],
   providers: [
