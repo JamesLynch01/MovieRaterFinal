@@ -1,5 +1,4 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MovieInfoComponent } from './movie-info/movie-info.component';
 import { IMovieInfo } from '../imovie-info';
 import { HttpClient } from '@angular/common/http';
 

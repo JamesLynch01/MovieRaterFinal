@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Inject, OnInit } from '@angular/core';
 import { IMovieInfo } from '../imovie-info';
-import { MovieDisplayComponent } from './movie-display/movie-display.component';
 
 @Component({
   selector: 'app-movie-info',

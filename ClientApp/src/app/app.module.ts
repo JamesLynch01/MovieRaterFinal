@@ -12,6 +12,7 @@ import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
 import { AuthorizeInterceptor } from 'src/api-authorization/authorize.interceptor';
 import { MovieInfoComponent } from './movie-info/movie-info.component';
 import { MovieDisplayComponent } from './movie-display/movie-display.component';
+import { SearchBoxComponent } from './search-box/search-box.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { MovieDisplayComponent } from './movie-display/movie-display.component';
     HomeComponent,
     MovieInfoComponent,
     MovieDisplayComponent,
+    SearchBoxComponent,
     
   ],
   imports: [
