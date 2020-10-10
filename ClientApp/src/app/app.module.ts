@@ -13,6 +13,7 @@ import { AuthorizeInterceptor } from 'src/api-authorization/authorize.intercepto
 import { MovieInfoComponent } from './movie-info/movie-info.component';
 import { MovieDisplayComponent } from './movie-display/movie-display.component';
 import { SearchBoxComponent } from './search-box/search-box.component';
+import { MovieTitleComponent } from './movie-title/movie-title.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { SearchBoxComponent } from './search-box/search-box.component';
     MovieInfoComponent,
     MovieDisplayComponent,
     SearchBoxComponent,
+    MovieTitleComponent,
     
   ],
   imports: [

@@ -4,5 +4,4 @@ export interface IMovieInfo {
     catergory: string[];
     actor: string[];
     runTime: number;
-    Url_Image: string;
 }

@@ -21,7 +21,5 @@ namespace capstone.Models
         public string[] Actor { get; set; }
 
         public int RunTime { get; set; }
-
-        public string Url_Image {get; set;}
     }
 }
