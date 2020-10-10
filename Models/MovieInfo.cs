@@ -16,9 +16,9 @@ namespace capstone.Models
 
         public string Directer { get; set; }
 
-        public string[] Catergory { get; set; }
+        public string Catergory { get; set; }
 
-        public string[] Actor { get; set; }
+        public string Actor { get; set; }
 
         public int RunTime { get; set; }
     }
