@@ -11,6 +11,7 @@ import { ApiAuthorizationModule } from 'src/api-authorization/api-authorization.
 import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
 import { AuthorizeInterceptor } from 'src/api-authorization/authorize.interceptor';
 import { MovieInfoComponent } from './movie-info/movie-info.component';
+import { MovieDisplayComponent } from './movie-display/movie-display.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { MovieInfoComponent } from './movie-info/movie-info.component';
     NavMenuComponent,
     HomeComponent,
     MovieInfoComponent,
+    MovieDisplayComponent,
     
   ],
   imports: [
