@@ -11,6 +11,7 @@ import { ApiAuthorizationModule } from 'src/api-authorization/api-authorization.
 import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
 import { AuthorizeInterceptor } from 'src/api-authorization/authorize.interceptor';
 import { TeacherComponent } from './teacher/teacher.component';
+import { MovieInfoComponent } from './movie-info/movie-info.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { TeacherComponent } from './teacher/teacher.component';
     NavMenuComponent,
     HomeComponent,
     TeacherComponent,
+    MovieInfoComponent,
     
   ],
   imports: [
@@ -28,6 +30,7 @@ import { TeacherComponent } from './teacher/teacher.component';
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
         { path: 'teachers', component: TeacherComponent, canActivate: [AuthorizeGuard] },
+        { path: 'movie-info', component: MovieInfoComponent, canActivate: [AuthorizeGuard]},
     ])
   ],
   providers: [

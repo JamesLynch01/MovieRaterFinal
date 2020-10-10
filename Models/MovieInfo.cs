@@ -12,6 +12,14 @@ namespace capstone.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
         public int Id { get; set; }
-        public string Title {get; set;}
+        public string Title { get; set; }
+
+        public string Directer { get; set; }
+
+        public string[] Catergory { get; set; }
+
+        public string[] Actor { get; set; }
+
+        public int RunTime { get; set; }
     }
 }
