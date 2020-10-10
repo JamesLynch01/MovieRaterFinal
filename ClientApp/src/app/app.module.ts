@@ -10,7 +10,6 @@ import { HomeComponent } from './home/home.component';
 import { ApiAuthorizationModule } from 'src/api-authorization/api-authorization.module';
 import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
 import { AuthorizeInterceptor } from 'src/api-authorization/authorize.interceptor';
-import { TeacherComponent } from './teacher/teacher.component';
 import { MovieInfoComponent } from './movie-info/movie-info.component';
 
 @NgModule({
@@ -18,7 +17,6 @@ import { MovieInfoComponent } from './movie-info/movie-info.component';
     AppComponent,
     NavMenuComponent,
     HomeComponent,
-    TeacherComponent,
     MovieInfoComponent,
     
   ],
@@ -29,7 +27,6 @@ import { MovieInfoComponent } from './movie-info/movie-info.component';
     ApiAuthorizationModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-        { path: 'teachers', component: TeacherComponent, canActivate: [AuthorizeGuard] },
         { path: 'movie-info', component: MovieInfoComponent, canActivate: [AuthorizeGuard]},
     ])
   ],

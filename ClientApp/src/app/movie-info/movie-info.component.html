@@ -1,1 +1,35 @@
-<p>movie-info works!</p>
+<h1 id="tableLabel">Movies</h1>
+
+<p *ngIf="!movies"><em>Rendering...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="movies">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Director</th>
+            <th>Main Catergory</th>
+            <th>Actors</th>
+            <th>Run Time</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let movie of movies">
+            <td>{{movie.title}}</td>
+            <td>{{movie.director}}</td>
+            <td>{{movie.catergory}}</td>
+            <td>{{movie.actor}}</td>
+            <td>{{movie.runTime}}</td>
+        </tr>
+    </tbody>
+</table>
+Title
+<input type="text"  [(ngModel)]="newMovie.title" name="title">
+Director
+<input type="text"  [(ngModel)]="newMovie.director" name="director">
+Main Catergory
+<input type="text" [(ngModel)]="newMovie.catergory" name="catergory">
+Actors
+<input type="text" [(ngModel)]="newMovie.actor" name="actor">
+Run Time
+<input type="number" [(ngModel)]="newMovie.runTime" name="runTime">
+<button (click)="save()">Save</button>

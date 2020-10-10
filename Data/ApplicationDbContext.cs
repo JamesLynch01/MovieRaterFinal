@@ -15,7 +15,6 @@ namespace capstone.Data
     public class ApplicationDbContext : ApiAuthorizationDbContext<ApplicationUser>
     {
         public IConfiguration Configuration { get; }
-        public DbSet<Teacher> Teachers { get; set; }
         public DbSet<MovieInfo> MovieInfos { get; set; }
         public ApplicationDbContext(
             DbContextOptions options,
