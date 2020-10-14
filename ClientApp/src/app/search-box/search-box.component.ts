@@ -8,12 +8,12 @@ import { MovieServiceService } from '../services/movie-service.service';
 })
 export class SearchBoxComponent implements OnInit {
 
-  constructor(private movieService: MovieServiceService) { }
+  constructor(private movieServiceService: MovieServiceService) { }
 
   ngOnInit() {
   }
 
   loadSearch(event): void {
-    this.movieService.searchForMovies(event.target.value);
+    this.movieServiceService.searchForMovies(event.target.value);
   }
 }

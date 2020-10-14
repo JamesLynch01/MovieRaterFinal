@@ -1,4 +1,4 @@
-import { Component, Inject, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 
 @Component({
@@ -11,7 +11,7 @@ export class MovieDisplayComponent implements OnInit {
 
   constructor() { }
 
-  @Input() movies;
+  @Input() movie;
   @Input() titles;
 
   ngOnInit() {

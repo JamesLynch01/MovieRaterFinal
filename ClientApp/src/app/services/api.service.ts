@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Inject, Injectable, Input } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
@@ -7,6 +7,7 @@ import { Injectable } from '@angular/core';
 export class APIService {
 
   private readonly URL = 'https://ce-authenticated-backend.herokuapp.com/publicapi/movies';
+
   constructor(private httpClient: HttpClient) { }
 
   get(): Promise<any[]> {

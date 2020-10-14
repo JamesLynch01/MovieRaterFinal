@@ -9,19 +9,19 @@ import { IMovieInfo } from '../imovie-info';
 })
 export class MovieInfoComponent implements OnInit {
 
-  public movies: IMovieInfo[];
+  public movie: IMovieInfo[];
   public newMovie: IMovieInfo = { title:'', director:'', catergory: [], actor: [], runTime: undefined,}
 
   constructor(private http: HttpClient, @Inject('BASE_URL') private baseUrl: string) { }
 
   async ngOnInit() {
-      this.movies = await this.http.get<IMovieInfo[]>(this.baseUrl + 'movieinfo').toPromise();
+      this.movie = await this.http.get<IMovieInfo[]>(this.baseUrl + 'movieinfo').toPromise();
   }
 
   async save() {
     await this.http.post<IMovieInfo[]>(this.baseUrl + 'movieinfo', this.newMovie).toPromise();
     this.newMovie = { title: '', director: '', catergory: [], actor: [], runTime: undefined, };
-    this.movies = await this.http.get<IMovieInfo[]>(this.baseUrl + 'movieinfo').toPromise();
+    this.movie = await this.http.get<IMovieInfo[]>(this.baseUrl + 'movieinfo').toPromise();
   }
 
 }
