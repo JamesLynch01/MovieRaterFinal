@@ -22,8 +22,6 @@ import { MovieTitleComponent } from './movie-title/movie-title.component';
     HomeComponent,
     MovieInfoComponent,
     MovieDisplayComponent,
-    SearchBoxComponent,
-    MovieTitleComponent,
     
   ],
   imports: [
@@ -31,6 +29,7 @@ import { MovieTitleComponent } from './movie-title/movie-title.component';
     HttpClientModule,
     FormsModule,
     ApiAuthorizationModule,
+    SearchBoxComponent,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
         { path: 'movie-info', component: MovieInfoComponent, canActivate: [AuthorizeGuard]},

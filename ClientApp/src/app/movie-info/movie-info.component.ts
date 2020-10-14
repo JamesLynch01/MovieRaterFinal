@@ -10,7 +10,7 @@ import { IMovieInfo } from '../imovie-info';
 export class MovieInfoComponent implements OnInit {
 
   public movie: IMovieInfo[];
-  public newMovie: IMovieInfo = { title:'', director:'', catergory: [], actor: [], runTime: undefined,}
+  public newMovie: IMovieInfo = { title:'', director:'', catergory: '', actor: '', runTime: undefined,}
 
   constructor(private http: HttpClient, @Inject('BASE_URL') private baseUrl: string) { }
 
@@ -20,7 +20,7 @@ export class MovieInfoComponent implements OnInit {
 
   async save() {
     await this.http.post<IMovieInfo[]>(this.baseUrl + 'movieinfo', this.newMovie).toPromise();
-    this.newMovie = { title: '', director: '', catergory: [], actor: [], runTime: undefined, };
+    this.newMovie = { title: '', director: '', catergory: '', actor: '', runTime: undefined, };
     this.movie = await this.http.get<IMovieInfo[]>(this.baseUrl + 'movieinfo').toPromise();
   }
 
