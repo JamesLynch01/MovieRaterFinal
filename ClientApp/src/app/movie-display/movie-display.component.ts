@@ -11,8 +11,8 @@ export class MovieDisplayComponent implements OnInit {
 
   constructor() { }
 
-  @Input() movies;
-  @Input() titles;
+  @Input() movie;
+  @Input() title;
 
   ngOnInit() {
   }

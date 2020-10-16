@@ -14,6 +14,7 @@ import { MovieInfoComponent } from './movie-info/movie-info.component';
 import { MovieDisplayComponent } from './movie-display/movie-display.component';
 import { SearchBoxComponent } from './search-box/search-box.component';
 import { MovieTitleComponent } from './movie-title/movie-title.component';
+import { BloodyArchiveComponent } from './bloody-archive/bloody-archive.component';
 
 @NgModule({
   declarations: [
@@ -22,18 +23,20 @@ import { MovieTitleComponent } from './movie-title/movie-title.component';
     HomeComponent,
     MovieInfoComponent,
     MovieDisplayComponent,
-    
+    SearchBoxComponent,
+    MovieTitleComponent,
+    BloodyArchiveComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
     ApiAuthorizationModule,
-    SearchBoxComponent,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
         { path: 'movie-info', component: MovieInfoComponent, canActivate: [AuthorizeGuard]},
         {path: 'movie-display', component: MovieDisplayComponent, canActivate: [AuthorizeGuard]},
+        {path: 'bloody-archive', component: BloodyArchiveComponent, canActivate: [AuthorizeGuard]},
     ])
   ],
   providers: [

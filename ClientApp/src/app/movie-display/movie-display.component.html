@@ -1,13 +1,11 @@
-<Div>
-    <app-search-box></app-search-box>
-    <div class="MovieDisplay" data-loaded="true">
-        <div class="title">
+<div>
+    <div class="MovieDisplay" data-load="true">
+        <div class="Title">
             <h1>{{title}}</h1>
             <div class="titles-wrapper">
                 <app-movie-title *ngFor="let movie of movies" [movie]="movie"></app-movie-title>
-
             </div>
         </div>
     </div>
-</Div>
+</div>
 

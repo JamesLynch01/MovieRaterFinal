@@ -16,10 +16,10 @@ export class MovieTitleComponent implements OnInit {
     let backDrop = "http://image.tmdb.org/t/p/original" + this.movie.backdrop_path;
     this.theStyles = {width: '200px', backgroundImage: 'url(' + backDrop + ')'};
 
-    if(!this.movie.title) {
-      this.title = this.movie.orginal_title;
+    if(!this.movie.name) {
+      this.title = this.movie.original_title;
     } else {
-      this.title = this.movie.title;
+      this.title = this.movie.name;
     }
   }
 
