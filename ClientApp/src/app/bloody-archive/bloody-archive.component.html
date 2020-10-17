@@ -2,7 +2,9 @@
     <header class="Header">
         <app-search-box></app-search-box>
     </header>
-    <app-movie-display 
-        title="Search Results"
-        [movie]="searchResults"></app-movie-display>
+        <div>
+            <mat-grid-list>
+                <mat-grid-tile *ngFor="let tile of tiles">{{tile.text}}</mat-grid-tile>
+            </mat-grid-list>
+        </div>
 </div>

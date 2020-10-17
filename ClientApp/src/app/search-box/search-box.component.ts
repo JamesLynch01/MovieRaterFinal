@@ -10,7 +10,10 @@ export class SearchBoxComponent implements OnInit {
 
   constructor(private movieServiceService: MovieServiceService) { }
 
+  searchResults: any [] = [];
+
   ngOnInit() {
+    this.searchResults = this.movieServiceService.searchResults;
   }
 
   loadSearch(event): void {

@@ -1,4 +1,6 @@
+import { Input } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
+import { MatGridList } from '@angular/material';
 
 @Component({
   selector: 'app-bloody-archive',
@@ -7,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BloodyArchiveComponent implements OnInit {
 
+  
+  
   constructor() { }
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
+    
 }

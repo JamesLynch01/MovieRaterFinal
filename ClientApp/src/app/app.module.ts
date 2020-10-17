@@ -11,10 +11,11 @@ import { ApiAuthorizationModule } from 'src/api-authorization/api-authorization.
 import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
 import { AuthorizeInterceptor } from 'src/api-authorization/authorize.interceptor';
 import { MovieInfoComponent } from './movie-info/movie-info.component';
-import { MovieDisplayComponent } from './movie-display/movie-display.component';
 import { SearchBoxComponent } from './search-box/search-box.component';
-import { MovieTitleComponent } from './movie-title/movie-title.component';
 import { BloodyArchiveComponent } from './bloody-archive/bloody-archive.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatCardModule } from '@angular/material';
+import { MatGridList } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -22,10 +23,10 @@ import { BloodyArchiveComponent } from './bloody-archive/bloody-archive.componen
     NavMenuComponent,
     HomeComponent,
     MovieInfoComponent,
-    MovieDisplayComponent,
     SearchBoxComponent,
-    MovieTitleComponent,
     BloodyArchiveComponent,
+    MatCardModule,
+    MatGridList,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -35,9 +36,11 @@ import { BloodyArchiveComponent } from './bloody-archive/bloody-archive.componen
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
         { path: 'movie-info', component: MovieInfoComponent, canActivate: [AuthorizeGuard]},
-        {path: 'movie-display', component: MovieDisplayComponent, canActivate: [AuthorizeGuard]},
         {path: 'bloody-archive', component: BloodyArchiveComponent, canActivate: [AuthorizeGuard]},
-    ])
+    ]),
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatGridList,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true }

@@ -2,4 +2,8 @@
     <input (keyup.enter)="loadSearch($event)"
       type="search" 
       placeholder="Search for a title..." />
+
+  </div>
+  <div *ngFor="let searchResult of searchResults">
+    <p>{{searchResult.title}}</p>
   </div>
