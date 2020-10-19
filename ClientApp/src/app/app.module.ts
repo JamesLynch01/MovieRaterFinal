@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS, } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
@@ -11,11 +11,10 @@ import { ApiAuthorizationModule } from 'src/api-authorization/api-authorization.
 import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
 import { AuthorizeInterceptor } from 'src/api-authorization/authorize.interceptor';
 import { MovieInfoComponent } from './movie-info/movie-info.component';
-import { SearchBoxComponent } from './search-box/search-box.component';
 import { BloodyArchiveComponent } from './bloody-archive/bloody-archive.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material';
-import { MatGridList } from '@angular/material';
+import { MatGridListModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -23,10 +22,7 @@ import { MatGridList } from '@angular/material';
     NavMenuComponent,
     HomeComponent,
     MovieInfoComponent,
-    SearchBoxComponent,
     BloodyArchiveComponent,
-    MatCardModule,
-    MatGridList,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -36,11 +32,11 @@ import { MatGridList } from '@angular/material';
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
         { path: 'movie-info', component: MovieInfoComponent, canActivate: [AuthorizeGuard]},
-        {path: 'bloody-archive', component: BloodyArchiveComponent, canActivate: [AuthorizeGuard]},
+        { path: 'bloody-archive', component: BloodyArchiveComponent, canActivate: [AuthorizeGuard]},
     ]),
     BrowserAnimationsModule,
     MatCardModule,
-    MatGridList,
+    MatGridListModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true }

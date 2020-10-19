@@ -1,6 +1,7 @@
 import { Input } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { MatGridList } from '@angular/material';
+import { MovieServiceService } from '../services/movie-service.service';
 
 @Component({
   selector: 'app-bloody-archive',
@@ -9,10 +10,16 @@ import { MatGridList } from '@angular/material';
 })
 export class BloodyArchiveComponent implements OnInit {
 
-  
-  
-  constructor() { }
+  searchResults: any[] = [];
 
-  ngOnInit() {}
+  constructor(private movieService: MovieServiceService) { }
+
+  ngOnInit() {
     
+  }
+
+  loadSearch(event): void {
+    this.movieService.searchForMovies(event.target.value);
+    this.searchResults=this.movieService.searchResults;
+  }
 }

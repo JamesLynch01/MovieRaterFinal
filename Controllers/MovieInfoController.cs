@@ -10,7 +10,6 @@ using Microsoft.Extensions.Logging;
 
 namespace capstone.Controllers
 {
-    [Authorize]
     [ApiController]
     [Route("[controller]")]
     public class MovieInfoController : ControllerBase

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Inject, OnInit } from '@angular/core';
 import { IMovieInfo } from '../imovie-info';
+import { MovieServiceService } from '../services/movie-service.service';
 
 @Component({
   selector: 'app-movie-info',
@@ -12,16 +13,16 @@ export class MovieInfoComponent implements OnInit {
   public movie: IMovieInfo[];
   public newMovie: IMovieInfo = { title:'', director:'', catergory: '', actor: '', runTime: undefined,}
 
-  constructor(private http: HttpClient, @Inject('BASE_URL') private baseUrl: string) { }
+  constructor(private movieService: MovieServiceService) { }
 
   async ngOnInit() {
-      this.movie = await this.http.get<IMovieInfo[]>(this.baseUrl + 'movieinfo').toPromise();
+      this.movie = await this.movieService.getMovies();
   }
 
   async save() {
-    await this.http.post<IMovieInfo[]>(this.baseUrl + 'movieinfo', this.newMovie).toPromise();
+    await this.movieService.addMovies(this.newMovie);
     this.newMovie = { title: '', director: '', catergory: '', actor: '', runTime: undefined, };
-    this.movie = await this.http.get<IMovieInfo[]>(this.baseUrl + 'movieinfo').toPromise();
+    this.movie = await this.movieService.getMovies();
   }
 
 }

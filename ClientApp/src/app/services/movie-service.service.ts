@@ -1,5 +1,7 @@
+import { HttpClient } from '@angular/common/http';
+import { Inject } from '@angular/core';
 import { Injectable } from '@angular/core';
-import { APIService } from './api.service';
+import { IMovieInfo } from '../imovie-info';
 import { MovieApiService } from './movie-api.service';
 
 @Injectable({
@@ -8,16 +10,21 @@ import { MovieApiService } from './movie-api.service';
 export class MovieServiceService {
 
   searchResults: any[] = [];
-  myMovieList: any[] = [];
+  myMovieList: IMovieInfo[];
 
-  constructor(private apiService: APIService, private movieApiService: MovieApiService) { }
+  constructor( private movieApiService: MovieApiService, private http: HttpClient, @Inject('BASE_URL') private baseUrl: string
+  ) { }
+
+  async getMovies(): Promise<IMovieInfo[]> {
+    return await this.http.get<IMovieInfo[]>(`${this.baseUrl}movieinfo`).toPromise();
+  }
+
+  async addMovies(newMovie: IMovieInfo): Promise<IMovieInfo> {
+    return await this.http.post<IMovieInfo>(`${this.baseUrl}movieinfo`, newMovie).toPromise();
+  } 
 
   getSearchResults(): any[] {
     return this.searchResults;
-  }
-
-  getMovieList(): any[] {
-    return this.myMovieList;
   }
 
   async searchForMovies(searchTerm: string): Promise<void>{
@@ -25,16 +32,5 @@ export class MovieServiceService {
     this.searchResults.length = 0;
     this.searchResults.push(...response.results);
   }
-
-  async loadMovieList(): Promise<void> {
-    const response = await this.apiService.get();
-    this.myMovieList.length = 0;
-    this.myMovieList.push(...response);
-    console.log(this.myMovieList);
-  }
-
-  async saveToList(movie: any): Promise<void>{
-    await this.apiService.post(movie);
-    await this.loadMovieList();
-  }
+  
 }
