@@ -23,6 +23,10 @@ export class MovieServiceService {
     return await this.http.post<IMovieInfo>(`${this.baseUrl}movieinfo`, newMovie).toPromise();
   } 
 
+  deleteMovies(movie: IMovieInfo) {
+    return this.http.delete<IMovieInfo>(`${this.baseUrl}movieinfo/${movie.id}`).toPromise();
+  }
+
   getSearchResults(): any[] {
     return this.searchResults;
   }

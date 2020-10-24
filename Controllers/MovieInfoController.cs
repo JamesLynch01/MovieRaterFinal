@@ -36,11 +36,10 @@ namespace capstone.Controllers
            return movies;
         }
 
-        [HttpDelete]
-        public MovieArchive Delete([FromBody]MovieArchive movies) {
-            _context.MovieArchives.Remove(movies);
+        [HttpDelete("{id}")]
+        public void Delete([FromRoute]MovieArchive movie) {
+            _context.MovieArchives.Remove(movie);
             _context.SaveChanges();
-            return null;
         }
     }
 }

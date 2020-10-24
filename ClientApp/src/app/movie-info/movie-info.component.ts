@@ -11,8 +11,9 @@ import { MovieServiceService } from '../services/movie-service.service';
 })
 export class MovieInfoComponent implements OnInit {
 
-  public movies: IMovieInfo[];
+  public movies: IMovieInfo[] = [];
   public newMovie: IMovieInfo = { title:'', movie_poster: '', movieId: undefined,}
+  
   showTicks = false;
   autoTicks = false;
   thumbLabel = false;
@@ -25,7 +26,7 @@ export class MovieInfoComponent implements OnInit {
   constructor(private movieService: MovieServiceService, private apiService: MovieApiService) { }
 
   async ngOnInit() {
-      
+    this.movies = await this.movieService.getMovies();
   }
 
   getSliderTickInterval(): number | 'auto' {
@@ -39,7 +40,10 @@ export class MovieInfoComponent implements OnInit {
   async getMovie(id) {
     return this.apiService.getMovie(id);
   }
+  
+  async deleteMovie(movie) {
+    this.movieService.deleteMovies(movie);
+    this.movies = await this.movieService.getMovies();
+  }
 
-  
-  
 }

@@ -2,22 +2,15 @@
 
 <p *ngIf="!movies"><em>Rendering...</em></p>
 
-<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="movies">
-    <thead>
-        <tr>
-            <th>Title</th>
-            <th>Main Catergory</th>
-            <th>Run Time</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let movie of movies">
-            <td>{{movie.title}}</td>
-            <td>{{movie.id}}</td>
-            <td>{{movie.movie_poster}}</td>
-        </tr>
-        <!-- <mat-slider>
-            [tickInterval]="getSliderTickInterval()"
-        </mat-slider> -->
-    </tbody>
-</table>
+<mat-grid-list cols="3" rowHeight="1:2">
+            <mat-grid-tile *ngFor="let movie of movies">
+                <mat-card class="tile">
+                    <img class="moviePoster" mat-card-image src="https://image.tmdb.org/t/p/w500/{{movie.movie_poster}}">
+                    <mat-card-content>{{movie.title}}</mat-card-content>
+                    <mat-card-actions>
+                        <button class="btn-btn-primary" (click)="deleteMovie(movie)" mat-button>delete</button>
+                        <mat-slider [tickInterval]="getSliderTickInterval()"></mat-slider>
+                    </mat-card-actions>
+                </mat-card>
+            </mat-grid-tile>
+        </mat-grid-list>
