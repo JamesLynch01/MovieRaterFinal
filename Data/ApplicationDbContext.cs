@@ -15,7 +15,7 @@ namespace capstone.Data
     public class ApplicationDbContext : ApiAuthorizationDbContext<ApplicationUser>
     {
         public IConfiguration Configuration { get; }
-        public DbSet<MovieInfo> MovieInfos { get; set; }
+        public DbSet<MovieArchive> MovieArchives { get; set; }
         public ApplicationDbContext(
             DbContextOptions options,
             IOptions<OperationalStoreOptions> operationalStoreOptions) : base(options, operationalStoreOptions)

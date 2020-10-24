@@ -21,24 +21,24 @@ namespace capstone.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<MovieInfo> Get()
+        public IEnumerable<MovieArchive> Get()
         {
-                var movies = _context.MovieInfos.ToArray();
+                var movies = _context.MovieArchives.ToArray();
                 return movies;
         }
 
         [HttpPost]
-        public MovieInfo Post([FromBody]MovieInfo movies)
+        public MovieArchive Post([FromBody]MovieArchive movies)
         {
             
-            _context.MovieInfos.Add(movies);
+            _context.MovieArchives.Add(movies);
             _context.SaveChanges();
            return movies;
         }
 
         [HttpDelete]
-        public MovieInfo Delete([FromBody]MovieInfo movies) {
-            _context.MovieInfos.Remove(movies);
+        public MovieArchive Delete([FromBody]MovieArchive movies) {
+            _context.MovieArchives.Remove(movies);
             _context.SaveChanges();
             return null;
         }
