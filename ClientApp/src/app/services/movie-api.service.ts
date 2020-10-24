@@ -18,4 +18,8 @@ export class MovieApiService {
 
     return this.httpClient.get<any[]>(`${this.URL}`, {params}).toPromise();
   }
+
+  async getMovie(id) {
+    return await this.httpClient.get(`https://api.themoviedb.org/3/movie/${id}?api_key=5a470fd8928415f9a6a9d110a9d0e490`);
+  }
 }

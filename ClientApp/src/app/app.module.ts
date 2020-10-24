@@ -13,8 +13,7 @@ import { AuthorizeInterceptor } from 'src/api-authorization/authorize.intercepto
 import { MovieInfoComponent } from './movie-info/movie-info.component';
 import { BloodyArchiveComponent } from './bloody-archive/bloody-archive.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatCardModule } from '@angular/material';
-import { MatGridListModule } from '@angular/material';
+import { MatCardModule, MatExpansionModule, MatGridListModule, MatSliderModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -37,6 +36,8 @@ import { MatGridListModule } from '@angular/material';
     BrowserAnimationsModule,
     MatCardModule,
     MatGridListModule,
+    MatSliderModule,
+    MatExpansionModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true }

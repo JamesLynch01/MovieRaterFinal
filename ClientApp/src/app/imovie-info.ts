@@ -1,7 +1,7 @@
 export interface IMovieInfo {
     title: string;
     director: string;
-    catergory: string;
+    movie_poster: string;
     actor: string;
-    runTime: number;
+    movieId: number;
 }

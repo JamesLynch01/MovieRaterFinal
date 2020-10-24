@@ -14,8 +14,7 @@
                     <img class="moviePoster" mat-card-image src="https://image.tmdb.org/t/p/w500/{{searchResult.poster_path}}">
                     <mat-card-content>{{searchResult.title}}</mat-card-content>
                     <mat-card-actions>
-                        <button mat-button>Like</button>
-                        <button mat-button>Add</button>
+                        <button (click)="save(searchResult)" mat-button>Add</button>
                     </mat-card-actions>
                 </mat-card>
             </mat-grid-tile>

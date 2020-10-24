@@ -1,6 +1,5 @@
-import { Input } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
-import { MatGridList } from '@angular/material';
+import { IMovieInfo } from '../imovie-info';
 import { MovieServiceService } from '../services/movie-service.service';
 
 @Component({
@@ -11,15 +10,26 @@ import { MovieServiceService } from '../services/movie-service.service';
 export class BloodyArchiveComponent implements OnInit {
 
   searchResults: any[] = [];
+  public movie: IMovieInfo[];
+  public newMovie: IMovieInfo = { title:'', director:'', movie_poster: '', actor: '', movieId: undefined,}
 
   constructor(private movieService: MovieServiceService) { }
 
-  ngOnInit() {
-    
+  async ngOnInit() {
+    this.movie = await this.movieService.getMovies();
   }
 
   loadSearch(event): void {
     this.movieService.searchForMovies(event.target.value);
     this.searchResults=this.movieService.searchResults;
+  }
+
+  async save(movie) {
+    this.newMovie = { title: movie.title, director: '', movie_poster: movie.poster_path, actor: '', movieId: movie.id, };
+    console.log(movie.runtime);
+    await this.movieService.addMovies(this.newMovie);
+    // // this.movieService.addMovies(event.target.value);
+    this.newMovie = { title: '', director: '', movie_poster: '', actor: '', movieId: undefined, };
+    // this.movie = await this.movieService.getMovies();
   }
 }

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Inject, OnInit } from '@angular/core';
 import { IMovieInfo } from '../imovie-info';
+import { MovieApiService } from '../services/movie-api.service';
 import { MovieServiceService } from '../services/movie-service.service';
 
 @Component({
@@ -10,19 +11,35 @@ import { MovieServiceService } from '../services/movie-service.service';
 })
 export class MovieInfoComponent implements OnInit {
 
-  public movie: IMovieInfo[];
-  public newMovie: IMovieInfo = { title:'', director:'', catergory: '', actor: '', runTime: undefined,}
+  public movies: IMovieInfo[];
+  public newMovie: IMovieInfo = { title:'', director:'', movie_poster: '', actor: '', movieId: undefined,}
+  showTicks = false;
+  autoTicks = false;
+  thumbLabel = false;
+  tickInterval = 1;
+  value = 0;
+  max = 100;
+  min = 0;
+  step = 1;
 
-  constructor(private movieService: MovieServiceService) { }
+  constructor(private movieService: MovieServiceService, private apiService: MovieApiService) { }
 
   async ngOnInit() {
-      this.movie = await this.movieService.getMovies();
+      
   }
 
-  async save() {
-    await this.movieService.addMovies(this.newMovie);
-    this.newMovie = { title: '', director: '', catergory: '', actor: '', runTime: undefined, };
-    this.movie = await this.movieService.getMovies();
+  getSliderTickInterval(): number | 'auto' {
+    if (this.showTicks) {
+      return this.autoTicks ? 'auto' : this.tickInterval;
+    }
+
+    return 0;
   }
 
+  async getMovie(id) {
+    return this.apiService.getMovie(id);
+  }
+
+  
+  
 }
