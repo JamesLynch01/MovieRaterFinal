@@ -11,7 +11,7 @@ export class BloodyArchiveComponent implements OnInit {
 
   searchResults: any[] = [];
   public movie: IMovieInfo[];
-  public newMovie: IMovieInfo = { title:'', director:'', movie_poster: '', actor: '', movieId: undefined,}
+  public newMovie: IMovieInfo = { title:'', movie_poster: '', movieId: undefined,}
 
   constructor(private movieService: MovieServiceService) { }
 
@@ -25,11 +25,8 @@ export class BloodyArchiveComponent implements OnInit {
   }
 
   async save(movie) {
-    this.newMovie = { title: movie.title, director: '', movie_poster: movie.poster_path, actor: '', movieId: movie.id, };
-    console.log(movie.runtime);
+    this.newMovie = { title: movie.title, movie_poster: movie.poster_path, movieId: movie.id, };
     await this.movieService.addMovies(this.newMovie);
-    // // this.movieService.addMovies(event.target.value);
-    this.newMovie = { title: '', director: '', movie_poster: '', actor: '', movieId: undefined, };
-    // this.movie = await this.movieService.getMovies();
+    this.newMovie = { title: '', movie_poster: '', movieId: undefined, };
   }
 }

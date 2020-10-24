@@ -16,6 +16,6 @@ namespace capstone.Models
 
         public string movie_poster { get; set; }
 
-        public string movieId { get; set; }
+        public int movieId { get; set; }
     }
 }

@@ -12,7 +12,7 @@ import { MovieServiceService } from '../services/movie-service.service';
 export class MovieInfoComponent implements OnInit {
 
   public movies: IMovieInfo[];
-  public newMovie: IMovieInfo = { title:'', director:'', movie_poster: '', actor: '', movieId: undefined,}
+  public newMovie: IMovieInfo = { title:'', movie_poster: '', movieId: undefined,}
   showTicks = false;
   autoTicks = false;
   thumbLabel = false;
