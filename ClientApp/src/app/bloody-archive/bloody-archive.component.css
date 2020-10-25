@@ -1,1 +1,9 @@
-/* .moviePoster { width: 20px;} */
+body {
+    background-color: indianred;
+}
+
+.Search {
+    margin: 0;
+    position: absolute;
+    left: 50%;
+}

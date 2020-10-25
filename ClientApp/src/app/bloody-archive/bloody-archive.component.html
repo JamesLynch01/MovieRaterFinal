@@ -1,26 +1,27 @@
-<div>
-    <header class="Header">
-        <div id="search" class="Search">
-            <input (keyup.enter)="loadSearch($event)"
-              type="search" 
-              placeholder="Search for a title..." />
-        
-          </div>
-    </header>
+<body>
     <div>
-        <mat-grid-list cols="3" rowHeight="1:2">
-            <mat-grid-tile *ngFor="let searchResult of searchResults">
-                <mat-card class="tile">
-                    <img class="moviePoster" mat-card-image src="https://image.tmdb.org/t/p/w500/{{searchResult.poster_path}}">
-                    <mat-card-content>{{searchResult.title}}</mat-card-content>
-                    <mat-card-actions>
-                        <button (click)="save(searchResult)" mat-button>Add</button>
-                    </mat-card-actions>
-                </mat-card>
-            </mat-grid-tile>
-        </mat-grid-list>
+        <header class="Header">
+            <div id="search" class="Search">
+                <input (keyup.enter)="loadSearch($event)"
+                  type="search" 
+                  placeholder="Search for a title..." />
+              </div>
+        </header>
+        <div>
+            <mat-grid-list cols="3" rowHeight="1:2">
+                <mat-grid-tile *ngFor="let searchResult of searchResults">
+                    <mat-card class="tile">
+                        <img class="moviePoster" mat-card-image src="https://image.tmdb.org/t/p/w500/{{searchResult.poster_path}}">
+                        <mat-card-content>{{searchResult.title}}</mat-card-content>
+                        <mat-card-actions>
+                            <button (click)="save(searchResult)" mat-button>Add</button>
+                        </mat-card-actions>
+                    </mat-card>
+                </mat-grid-tile>
+            </mat-grid-list>
+        </div>
     </div>
-</div>
+</body>
 <!-- <div *ngFor="let searchResult of searchResults">
     <p>{{searchResult.title}}</p>
 </div> -->

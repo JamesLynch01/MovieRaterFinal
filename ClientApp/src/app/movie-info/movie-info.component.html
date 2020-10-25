@@ -1,4 +1,5 @@
-<h1 id="tableLabel">Movies</h1>
+<body>
+    <h1 id="tableLabel">Movie</h1>
 
 <p *ngIf="!movies"><em>Rendering...</em></p>
 
@@ -8,9 +9,43 @@
                     <img class="moviePoster" mat-card-image src="https://image.tmdb.org/t/p/w500/{{movie.movie_poster}}">
                     <mat-card-content>{{movie.title}}</mat-card-content>
                     <mat-card-actions>
-                        <button class="btn-btn-primary" (click)="deleteMovie(movie)" mat-button>delete</button>
-                        <mat-slider [tickInterval]="getSliderTickInterval()"></mat-slider>
+                        <button type="button" class="btn btn-outline-warning btn-lg btn-block" (click)="deleteMovie(movie)" mat-button>delete</button>
+                        <mat-accordion>
+                            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>
+                                        Rating System
+                                    </mat-panel-title>
+                                    <mat-panel-description>
+                                        click to open
+                                    </mat-panel-description>
+                                </mat-expansion-panel-header>
+                                    <h2>loved it</h2>
+                                        <mat-slider [tickInterval]="getSliderTickInterval()" 
+                                            [thumbLabel]="thumbLabel"
+                                            [step]="step"
+                                            [max]="max"
+                                            [min]="min">
+                                        </mat-slider>
+                                    <h2>Cheesy</h2>
+                                        <mat-slider [tickInterval]="getSliderTickInterval()" 
+                                            [thumbLabel]="thumbLabel"
+                                            [step]="step"
+                                            [max]="max"
+                                            [min]="min">
+                                        </mat-slider>
+                                    <h2>Violence</h2>
+                                        <mat-slider [tickInterval]="getSliderTickInterval()" 
+                                            [thumbLabel]="thumbLabel"
+                                            [step]="step"
+                                            [max]="max"
+                                            [min]="min">
+                                        </mat-slider>
+                            </mat-expansion-panel>
+                        </mat-accordion>
                     </mat-card-actions>
                 </mat-card>
             </mat-grid-tile>
         </mat-grid-list>
+
+</body>

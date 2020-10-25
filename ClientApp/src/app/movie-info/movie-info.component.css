@@ -1,0 +1,16 @@
+img {
+    width: 90%;
+    height: 25%;
+}
+
+body {
+    background-color: #20B2AA;
+}
+
+h1 {
+    color: cyan;
+}
+
+.tile {
+    background-color:#20B2AA;
+}

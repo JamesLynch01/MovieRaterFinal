@@ -14,14 +14,15 @@ export class MovieInfoComponent implements OnInit {
   public movies: IMovieInfo[] = [];
   public newMovie: IMovieInfo = { title:'', movie_poster: '', movieId: undefined,}
   
-  showTicks = false;
+  showTicks = true;
   autoTicks = false;
-  thumbLabel = false;
+  thumbLabel = true;
   tickInterval = 1;
   value = 0;
   max = 100;
   min = 0;
   step = 1;
+  panelOpenState = false;
 
   constructor(private movieService: MovieServiceService, private apiService: MovieApiService) { }
 
